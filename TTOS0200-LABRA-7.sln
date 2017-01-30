@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTOS0200-LABRA-7", "TTOS020
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehtava1", "Tehtava1\Tehtava1.csproj", "{EB31C226-AC36-4A89-B220-CB23F3CF88C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tehtava2", "Tehtava2\Tehtava2.csproj", "{AC28CE7C-1132-4EF9-9F6E-A7ED0589803A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EB31C226-AC36-4A89-B220-CB23F3CF88C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB31C226-AC36-4A89-B220-CB23F3CF88C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB31C226-AC36-4A89-B220-CB23F3CF88C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC28CE7C-1132-4EF9-9F6E-A7ED0589803A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC28CE7C-1132-4EF9-9F6E-A7ED0589803A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC28CE7C-1132-4EF9-9F6E-A7ED0589803A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC28CE7C-1132-4EF9-9F6E-A7ED0589803A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
