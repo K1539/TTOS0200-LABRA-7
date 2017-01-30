@@ -37,6 +37,7 @@ Bonustehtävä: Lajittele nimet aakkosjärjestykseen ennen tulostusta.
     * Jere Liikka 30.1.2017
     */
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -56,24 +57,29 @@ namespace Tehtava2
                 string line;
                 //avataan tiedosto ja luetaan sitä rivi riviltä.
                 System.IO.StreamReader file =
-                   new System.IO.StreamReader(@" D:\Temp\test.txt");
+                   new System.IO.StreamReader(@"E:\Koulu\TTOS0200-LABRA-7\test.txt");
+                Dictionary<string, int> dictionary =
+               new Dictionary<string, int>();
                 while ((line = file.ReadLine()) != null)
                 {
                     counter++;
-                    Dictionary<string, int> dictionary =
-                new Dictionary<string, int>();
+                   
 
+                   
                     dictionary.Add(line, 1);
 
                     // See whether Dictionary contains this string.
-                    if (dictionary.ContainsKey(line))
-                    {
-                        Console.WriteLine(line);
-                    }
+                  
 
+
+                }
+                if (dictionary.ContainsKey("Aappo"))
+                {
+                    Console.WriteLine("Aappo");
                 }
                 file.Close();
                 Console.WriteLine("Rivejä löytyi yhteensä {0} kappaletta.", counter);
+               
             }
             catch (FileNotFoundException)
             {
