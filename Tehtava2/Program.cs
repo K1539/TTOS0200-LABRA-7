@@ -50,44 +50,42 @@ namespace Tehtava2
     {
         static void Main(string[] args)
         {
-            
-            try
+            int Rivimaara = 0;
+            int NimienMaara = 0;
+            var LaskeNimet = new Dictionary<string, int>();
+
+            foreach (String s in File.ReadAllLines(@"C:\Users\K1539\Source\Repos\TTOS0200-LABRA-7\TTOS0200-LABRA-7\test.txt"))
             {
-                int counter = 0;
-                string line;
-                //avataan tiedosto ja luetaan sitä rivi riviltä.
-                System.IO.StreamReader file =
-                   new System.IO.StreamReader(@"E:\Koulu\TTOS0200-LABRA-7\test.txt");
-                Dictionary<string, int> dictionary =
-               new Dictionary<string, int>();
-                while ((line = file.ReadLine()) != null)
+                if (LaskeNimet.ContainsKey(s))
                 {
-                    counter++;
-                   
-
-                   
-                    dictionary.Add(line, 1);
-
-                    // See whether Dictionary contains this string.
-                  
-
-
+                    LaskeNimet[s] = LaskeNimet[s] + 1;
                 }
-                if (dictionary.ContainsKey("Aappo"))
+                else
                 {
-                    Console.WriteLine("Aappo");
+                    LaskeNimet.Add(s, 1);
+                    NimienMaara++;
                 }
-                file.Close();
-                Console.WriteLine("Rivejä löytyi yhteensä {0} kappaletta.", counter);
-               
+                Rivimaara++;
             }
-            catch (FileNotFoundException)
+
+            Console.WriteLine("Rivejä löytyi {0} kappaletta ja {1} nimeä", Rivimaara, NimienMaara);
+            // and printing
+            foreach (var pair in LaskeNimet)
             {
-                Console.WriteLine("File not found (FileNotFoundException)");
+                Console.WriteLine("Nimi {0} esiintyy {1} kertaa", pair.Key, pair.Value);
             }
-         
-         
-            
+            var AakkostettuLista = LaskeNimet.Keys.ToList();
+            AakkostettuLista.Sort();
+            Console.WriteLine();
+            Console.WriteLine("Rivejä löytyi {0} kappaletta ja {1} sortattua nimeä", Rivimaara, NimienMaara);
+            foreach (var key in AakkostettuLista)
+            {
+                Console.WriteLine("Nimi {0} esiintyy {1} kertaa", key, LaskeNimet[key]);
+            }
+
+
+
+
         }
     }
 
