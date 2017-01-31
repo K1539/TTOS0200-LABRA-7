@@ -40,31 +40,78 @@ namespace Tehtava3
         static void Main(string[] args)
         {
             string value;
-            System.IO.StreamWriter outputFile = null;
+            System.IO.StreamWriter intfilu = null;
+            System.IO.StreamWriter floatfilu = null;
             int i;
             float f;
-            Console.Write("Give a number : ");
-            value = Console.ReadLine();
+            intfilu = new System.IO.StreamWriter(@"intti.txt");
+            floatfilu = new System.IO.StreamWriter(@"float.txt");
 
-            if (int.TryParse(value, out i))
+            while (true)
             {
-                Console.WriteLine("intti");
-                Console.WriteLine(i);
-                outputFile = new System.IO.StreamWriter(@"intti.txt");
-                outputFile.WriteLine(i);
-            }
+                Console.Write("Give a number : ");
+                value = Console.ReadLine();
 
-            else if (float.TryParse(value, out f))
-            {
-                Console.WriteLine("floatti");
-                outputFile = new System.IO.StreamWriter(@"float.txt");
-                outputFile.WriteLine(f);
+                if (int.TryParse(value, out i))
+                {
+                    Console.WriteLine("intti");
+                    Console.WriteLine(i);
+                    intfilu.WriteLine(i);
+                }
+
+                else if (float.TryParse(value, out f))
+                {
+                    Console.WriteLine("floatti");
+                    floatfilu.WriteLine(f);
+                }
+                else
+                {
+                    break;
+                }
+                
             }
-            else
+            floatfilu.Close();
+            intfilu.Close();
+
+            //Tulosta tiedostojen tiedot
+            try
             {
-                Console.WriteLine("ei kumpakaan");
+                int counter = 0;
+                string line;
+                //avataan tiedosto ja luetaan sitä rivi riviltä.
+                Console.WriteLine("Contents of intti.txt");
+                System.IO.StreamReader intfile =
+                   new System.IO.StreamReader("intti.txt");
+                while ((line = intfile.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                    counter++;
+                }
+                intfile.Close();
             }
-            outputFile.Close();
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found (FileNotFoundException)");
+            }
+            try
+            {
+                int counter = 0;
+                string line;
+                //avataan tiedosto ja luetaan sitä rivi riviltä.
+                Console.WriteLine("Contents of float.txt");
+                System.IO.StreamReader floatfile =
+                   new System.IO.StreamReader("float.txt");
+                while ((line = floatfile.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                    counter++;
+                }
+                floatfile.Close();
+            }
+            catch (FileNotFoundException)
+            {
+                Console.WriteLine("File not found (FileNotFoundException)");
+            }
         }
     }
 }
