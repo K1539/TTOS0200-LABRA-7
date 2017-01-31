@@ -31,6 +31,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Tehtava3
 {
@@ -38,7 +39,32 @@ namespace Tehtava3
     {
         static void Main(string[] args)
         {
+            string value;
+            System.IO.StreamWriter outputFile = null;
+            int i;
+            float f;
+            Console.Write("Give a number : ");
+            value = Console.ReadLine();
 
+            if (int.TryParse(value, out i))
+            {
+                Console.WriteLine("intti");
+                Console.WriteLine(i);
+                outputFile = new System.IO.StreamWriter(@"intti.txt");
+                outputFile.WriteLine(i);
+            }
+
+            else if (float.TryParse(value, out f))
+            {
+                Console.WriteLine("floatti");
+                outputFile = new System.IO.StreamWriter(@"float.txt");
+                outputFile.WriteLine(f);
+            }
+            else
+            {
+                Console.WriteLine("ei kumpakaan");
+            }
+            outputFile.Close();
         }
     }
 }
