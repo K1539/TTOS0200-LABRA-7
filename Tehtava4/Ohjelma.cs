@@ -17,15 +17,8 @@ namespace JAMK.IT
 
         // Constructor that takes no arguments.
         public Ohjelma()
-        {        }
+        { }
 
-        // Constructor that takes one argument.
-        public Ohjelma(string nimi, string kanava, string alkujaloppuaika, string info)
-        {
-            Nimi = nimi;
-            Kanava = kanava;
-            AlkuJaLoppuAika = alkujaloppuaika;
-            Info = info;
-        }
+
     }
 }

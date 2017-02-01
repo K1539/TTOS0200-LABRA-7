@@ -53,21 +53,30 @@ namespace Tehtava2
             int Rivimaara = 0;
             int NimienMaara = 0;
             var LaskeNimet = new Dictionary<string, int>();
-
-            foreach (String s in File.ReadAllLines(@"C:\Users\K1539\Source\Repos\TTOS0200-LABRA-7\TTOS0200-LABRA-7\test.txt"))
+            string Polku = @"C:\Users\K1539\Source\Repos\TTOS0200-LABRA-7\TTOS0200-LABRA-7\test.txt";
+            try
             {
-                if (LaskeNimet.ContainsKey(s))
+                if (File.Exists(Polku))
                 {
-                    LaskeNimet[s] = LaskeNimet[s] + 1;
+                    foreach (String s in File.ReadAllLines(Polku))
+                    {
+                        if (LaskeNimet.ContainsKey(s))
+                        {
+                            LaskeNimet[s] = LaskeNimet[s] + 1;
+                        }
+                        else
+                        {
+                            LaskeNimet.Add(s, 1);
+                            NimienMaara++;
+                        }
+                        Rivimaara++;
+                    }
                 }
-                else
-                {
-                    LaskeNimet.Add(s, 1);
-                    NimienMaara++;
-                }
-                Rivimaara++;
             }
-
+            catch (Exception)
+            {
+                Console.WriteLine("VIRHE");
+            }
             Console.WriteLine("Rivejä löytyi {0} kappaletta ja {1} nimeä", Rivimaara, NimienMaara);
             // and printing
             foreach (var pair in LaskeNimet)

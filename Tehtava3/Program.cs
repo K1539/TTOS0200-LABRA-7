@@ -54,14 +54,11 @@ namespace Tehtava3
 
                 if (int.TryParse(value, out i))
                 {
-                    Console.WriteLine("intti");
-                    Console.WriteLine(i);
                     intfilu.WriteLine(i);
                 }
 
                 else if (float.TryParse(value, out f))
                 {
-                    Console.WriteLine("floatti");
                     floatfilu.WriteLine(f);
                 }
                 else
